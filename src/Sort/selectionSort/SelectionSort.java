@@ -1,4 +1,4 @@
-package Sort.选择排序法;
+package Sort.selectionSort;
 
 public class SelectionSort {
     private SelectionSort(){};
@@ -15,8 +15,6 @@ public class SelectionSort {
                 }
             }
             swap(arr, i, minIndex);
-
-
         }
     }
 

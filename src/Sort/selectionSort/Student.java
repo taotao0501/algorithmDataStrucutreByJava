@@ -1,4 +1,4 @@
-package Sort.选择排序法;
+package Sort.selectionSort;
 
 public class Student implements Comparable<Student>{
     private String name;
@@ -29,20 +29,29 @@ public class Student implements Comparable<Student>{
 
     @Override
     public boolean equals(Object student) {
-        if(this == student)
+        if(this == student) {
             return true;
-        if(student == null)
+        }
+        if(student == null) {
             return false;
-        if(this.getClass() != student.getClass())
+        }
+        if(this.getClass() != student.getClass()) {
             return false;
+        }
 
         Student another = (Student)student;
         return this.name.equals(another.name);
     }
 
+    /** 按score顺序,
+     * @param another
+     * @return
+     */
     @Override
     public int compareTo(Student another) {
         return this.score - another.score;
+        //逆序
+        //return another.score = this.score;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package Sort.选择排序法;
+package Sort.selectionSort;
 
 import java.util.*;
 
@@ -25,7 +25,8 @@ public class ComparableDemo {
         treeSet.add(new Person("zhao",22));
         treeSet.add(new Person("Kang",26));
         treeSet.add(new Person("Yi",30));
-        for(Person person:treeSet)
+        for(Person person:treeSet) {
             System.out.println(person.toString());
+        }
     }
 }
