@@ -21,12 +21,18 @@ public class SortingHelper {
         Long startTime = System.nanoTime();
         if(sortname.equals("InsertionSort")) {
             InsertionSort.sort(arr);
-        } else if(sortname.equals("InsertionSort2")) {
+        }
+        else if(sortname.equals("InsertionSort2")) {
             InsertionSort.sort2(arr);
-        } else if(sortname.equals("SelectionSort")){
+        }
+        else if(sortname.equals("SelectionSort")){
             myExercise.selectionSort(arr);
-        } else if(sortname.equals("BubbleSort")){
+        }
+        else if(sortname.equals("BubbleSort")){
             BubbleSort.sort(arr);
+        }
+        else if(sortname.equals("BubbleSortFromBackToFront")){
+            BubbleSort.sortFromBacktoFront(arr);
         }
         Long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;
