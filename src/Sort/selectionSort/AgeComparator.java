@@ -1,4 +1,4 @@
-package Sort.选择排序法;
+package Sort.selectionSort;
 import java.util.Comparator;
 
 public class AgeComparator implements Comparator<Person2>{

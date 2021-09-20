@@ -1,4 +1,4 @@
-package Sort.选择排序法;
+package Sort.selectionSort;
 
 import java.util.ArrayList;
 import java.util.Collections;

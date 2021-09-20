@@ -1,9 +1,10 @@
-package Sort.选择排序法;
+package Sort.selectionSort;
 
 /**
  * 时间复杂度是 O（n^2)
  */
 public class SelectionSort_GenericClass {
+
     private SelectionSort_GenericClass(){};
 
     //思想： 循环不变量 arr[i....n)未排序， arr[0..i)已经排序

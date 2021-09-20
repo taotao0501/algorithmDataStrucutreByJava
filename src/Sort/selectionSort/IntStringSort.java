@@ -1,4 +1,4 @@
-package Sort.选择排序法;
+package Sort.selectionSort;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,21 +16,24 @@ public class IntStringSort {
         intList.add(9);
 
         Iterator<Integer> it = intList.iterator();
-        while (it.hasNext())
+        while (it.hasNext()) {
             System.out.println(it.next());
+        }
         System.out.println("=================");
         //升序排列
         Collections.sort(intList);
         Iterator<Integer> sort_it = intList.iterator();
-        while (sort_it.hasNext())
+        while (sort_it.hasNext()) {
             System.out.println(sort_it.next());
+        }
 
         System.out.println("=================");
         //降序排列
         Collections.reverse(intList);
         Iterator<Integer> rev_it = intList.iterator();
-        while (rev_it.hasNext())
+        while (rev_it.hasNext()) {
             System.out.println(rev_it.next());
+        }
         //System.out.println("=================");
 
         // 字符串
