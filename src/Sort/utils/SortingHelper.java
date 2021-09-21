@@ -1,6 +1,8 @@
 package Sort.utils;
 
+import Sort.mergeSort.MergeSortBU;
 import Sort.mergeSort.MergeSortTrack;
+import Sort.mergeSort.MergeSort;
 
 public class SortingHelper {
 
@@ -26,8 +28,14 @@ public class SortingHelper {
         else if(sortname.equals("MergeSortTrack")){
             MergeSortTrack.sort(arr);
         }
+        else if (sortname.equals("MergeSort2")){
+            MergeSort.sort2(arr);
+        }
         else if(sortname.equals("MergeSortBU"))
-            MergeSort.sortBU(arr);
+            MergeSortBU.sortBU(arr);
+        else if(sortname.equals("MergeSortBU2"))
+            MergeSortBU.sortBU2(arr);
+
         else if(sortname.equals("QuickSort"))
             QuickSort.sort(arr);
         else if(sortname.equals("QuickSort2Ways"))
