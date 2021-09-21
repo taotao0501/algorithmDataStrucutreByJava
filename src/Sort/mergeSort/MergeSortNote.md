@@ -28,5 +28,12 @@ MergeSort(arr, l r){
 
 
 **例题**
-求解
+[剑指51-求解逆序对数量的问题](// https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/) 
+
+
+**拓展题**
+1.使用自底向上的方式解决逆序对数
+2.使用插入排序法进一步优化上述解决逆序对数的代码
+ 
+ 
  

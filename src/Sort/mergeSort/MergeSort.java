@@ -92,7 +92,7 @@ public class MergeSort {
 
         int i = l, j = mid + 1;
 
-        // 每轮循环为 arr[k] 赋值
+        // 每轮循环为 arr[k] 赋值,这里的temp索引与arr保持一致，没有l偏移量了。
         for(int k = l; k <= r; k ++){
 
             if(i > mid){
