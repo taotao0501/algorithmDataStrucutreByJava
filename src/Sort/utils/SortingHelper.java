@@ -3,6 +3,9 @@ package Sort.utils;
 import Sort.mergeSort.MergeSortBU;
 import Sort.mergeSort.MergeSortTrack;
 import Sort.mergeSort.MergeSort;
+import Sort.quickSort.QucikSortOptimizedByInsertionSort;
+import Sort.quickSort.QuickSort2ways;
+import Sort.quickSort.QuickSort3ways;
 
 public class SortingHelper {
 
@@ -35,15 +38,20 @@ public class SortingHelper {
             MergeSortBU.sortBU(arr);
         else if(sortname.equals("MergeSortBU2"))
             MergeSortBU.sortBU2(arr);
-
+        else if(sortname.equals("QuickSort1")){
+            Sort.quickSort.QuickSort.sort(arr);
+        }
+        else if(sortname.equals("QuickSortRandom")){
+            Sort.quickSort.QuickSortOptimizedByRandom.sort(arr);
+        }
         else if(sortname.equals("QuickSort"))
             QuickSort.sort(arr);
+        else if(sortname.equals("QuickSortOptimizedByInsertion"))
+            QucikSortOptimizedByInsertionSort.sort(arr);
         else if(sortname.equals("QuickSort2Ways"))
-            QuickSort.sort2ways(arr);
+            QuickSort2ways.sort(arr);
         else if(sortname.equals("QuickSort3Ways"))
-            QuickSort.sort3ways(arr);
-        else if(sortname.equals("QuickSort3Ways"))
-            QuickSort.sort3ways(arr);
+            QuickSort3ways.sort(arr);
         else if(sortname.equals("HeapSort"))
             HeapSort.sort(arr);
         else if(sortname.equals("BubbleSort"))
