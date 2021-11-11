@@ -54,3 +54,7 @@ public interface Queue<E> {
 #### 代码实现
 
 使用动态数组来实现一个最大堆  链接
+
+
+siftDown逻辑：
+siftDown的逻辑是先将数组最后一个元素放到堆顶，这样确保 完全二叉树的性质不变。然后再siftDown
