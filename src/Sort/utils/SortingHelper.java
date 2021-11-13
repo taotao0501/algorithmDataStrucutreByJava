@@ -54,6 +54,9 @@ public class SortingHelper {
             QuickSort3ways.sort(arr);
         else if(sortname.equals("HeapSort"))
             HeapSort.sort(arr);
+        else if(sortname.equals("HeapSort2")){
+            Sort.heapSort.MaxHeap.HeapSort.sort2(arr);
+        }
         else if(sortname.equals("BubbleSort"))
             BubbleSort.sort(arr);
         else if(sortname.equals("ShellSort"))

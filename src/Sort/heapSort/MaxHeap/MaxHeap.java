@@ -32,10 +32,6 @@ public class MaxHeap<E extends Comparable<E>> {
         }
     }
 
-
-
-
-
     //返回堆中元素个数
     public int size(){
         return data.getSize();
@@ -69,7 +65,7 @@ public class MaxHeap<E extends Comparable<E>> {
      */
     public void add(E e){
         data.addLast(e);
-        siftUp(data.getSize() -1);
+        siftUp(data.getSize() - 1);
     }
 
     private void siftUp(int k){
