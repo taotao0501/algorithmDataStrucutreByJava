@@ -27,7 +27,8 @@ public class SelectKOffer40 {
 
         int p = partition(arr, l, r, rnd);
 
-        if(k == p) return arr[p];
+        if(k == p)
+            return arr[p];
 
         if(k < p)
             return selectK(arr, l, p - 1, k, rnd);
