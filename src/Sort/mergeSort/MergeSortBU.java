@@ -15,7 +15,6 @@ import java.util.Arrays;
 
 public class MergeSortBU {
     private MergeSortBU(){};
-
     public static <E extends Comparable> void sortBU(E[] arr){
 
         //优化3：一次性创建辅助空间节省每次创建辅助空间的内存消耗

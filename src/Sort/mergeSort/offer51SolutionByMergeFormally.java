@@ -1,7 +1,7 @@
 package Sort.mergeSort;
 
 /**
- * @Description: 规范写法,不需要维护一个全局变量 res,更家规范。
+ * @Description: 规范写法,不需要维护一个全局变量 res,更加规范。
  * @Author: Bentao She
  * @Date: 2021/9/21 15:31
  * @Version: V1.0

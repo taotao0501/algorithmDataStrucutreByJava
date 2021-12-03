@@ -29,15 +29,14 @@ public class ShellSort {
     public static <E extends Comparable<E>> void sort2(E[] data){
         int h = data.length / 2;
         while(h >= 1){
-
             for(int i = h; i < data.length; i ++){
                 E t = data[i];
                 int j;
-                for(j = i; j - h >= 0 && t.compareTo(data[j - h]) < 0; j -= h)
+                for(j = i; j - h >= 0 && t.compareTo(data[j - h]) < 0; j -= h) {
                     data[j] = data[j - h];
+                }
                 data[j] = t;
             }
-
             h /= 2;
         }
     }
@@ -52,8 +51,9 @@ public class ShellSort {
             for(int i = h; i < data.length; i ++){
                 E t = data[i];
                 int j;
-                for(j = i; j - h >= 0 && t.compareTo(data[j - h]) < 0; j -= h)
+                for(j = i; j - h >= 0 && t.compareTo(data[j - h]) < 0; j -= h) {
                     data[j] = data[j - h];
+                }
                 data[j] = t;
             }
             h /= 3;

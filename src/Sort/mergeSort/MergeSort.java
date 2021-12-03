@@ -23,8 +23,9 @@ public class MergeSort {
     }
 
     private static <E extends Comparable<E>> void sort(E[] arr, int l, int r){
-        if(l>=r) return;
-
+        if(l>=r) {
+            return;
+        }
         int mid = l+(r-l)/2;
         sort(arr, l, mid);
         sort(arr,mid+1, r);
@@ -119,7 +120,5 @@ public class MergeSort {
 //        SortingHelper.sortTest("InsertionSort",arr3);
         SortingHelper.sortTest("MergeSort",arr);
         SortingHelper.sortTest("MergeSort2",arr2);
-
-
     }
 }

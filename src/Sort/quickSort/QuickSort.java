@@ -23,7 +23,9 @@ public class QuickSort {
     }
 
     private static <E extends Comparable<E>> void sort(E[] arr, int l, int r){
-        if( l >= r) return;
+        if( l >= r) {
+            return;
+        }
         int p = partition(arr, l, r);
         sort(arr, l, p-1);
         sort(arr, p+1, r);
