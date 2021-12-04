@@ -1,4 +1,4 @@
-package Arrays;
+package Queues;
 
 /**
  * @Description: 自己封装的动态数组-自动扩容缩容

@@ -12,7 +12,7 @@
 ### 1.3  优先队列的实现
 接口不变
 ```
-public interface Queue<E> {
+public interface Queues<E> {
     int getSize();
     boolean isEmpty();
     void enqueue(E e);

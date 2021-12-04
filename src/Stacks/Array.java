@@ -1,4 +1,4 @@
-package Arrays;
+package Stacks;
 
 /**
  * @Description: 自己封装的动态数组-自动扩容缩容
@@ -70,6 +70,14 @@ public class Array<E> {
         return data[index];
     }
 
+    public E getLast() {
+        return get(size -1);
+    }
+
+    public E getFirst() {
+        return get(0);
+    }
+
     // 修改index索引位置的元素为e
     public void set(int index, E e) {
         if(index < 0 || index >= size) {
@@ -109,7 +117,7 @@ public class Array<E> {
         }
         size --;
         data[size] = null;//可做可不做
-        if(size == data.length / 4 && data.length / 2 != 0) {
+        if(size == data.length / 2) {
             resize( data.length / 2); //动态缩容
         }
         return ret;
