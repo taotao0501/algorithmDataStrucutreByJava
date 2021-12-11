@@ -38,7 +38,7 @@ public class HeapSort {
         if(data.length <=1 ) {
             return;
         }
-        //1. 适用Heapify思想构造一个最大堆
+        //1. 使用Heapify思想构造一个最大堆
         for(int i = (data.length-2) / 2; i >= 0; i --) {
             siftDown(data, i, data.length);
         }
@@ -72,8 +72,6 @@ public class HeapSort {
         arr[i] = arr[j];
         arr[j] = t;
     }
-
-
 
     public static void main(String[] args) {
         int n = 1000000;
