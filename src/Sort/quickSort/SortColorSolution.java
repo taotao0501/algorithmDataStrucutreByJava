@@ -7,7 +7,6 @@ package Sort.quickSort;
  * @Version: V1.0
  **/
 
-
 public class SortColorSolution {
     public void sortColors(int[] nums) {
         //循环不变量是 nums[0,zero] == 0; nums[zero+1,i-1] ==1 ;nums[two,r]==2

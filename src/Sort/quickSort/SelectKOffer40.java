@@ -44,13 +44,10 @@ public class SelectKOffer40 {
             while(i <= j && arr[i] < arr[l]){
                 i ++;
             }
-
             while(j >= i && arr[j] > arr[l]){
                 j --;
             }
-
             if(i >= j) break;
-
             swap(arr, i, j);
             i ++;
             j --;
