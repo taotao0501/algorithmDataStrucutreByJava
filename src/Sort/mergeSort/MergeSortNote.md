@@ -15,8 +15,6 @@ MergeSort(arr, l r){
 }
 ```
 需要一个与原数组长度相同的辅助数组,因此空间复杂度为O(n)
-
-
 **优化**：
 1. 每次Merge前，判断 arr[mid].compareTo(arr[mid+1]),如果已经 <0,则
 无需merge,那么就会形成 O(n) 级别的算法了；
@@ -28,9 +26,7 @@ MergeSort(arr, l r){
 
 
 **例题**
-[剑指51-求解逆序对数量的问题](// https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/) 
-
-
+[剑指51-求解逆序对数量的问题](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/) 
 **拓展题**
 1.使用自底向上的方式解决逆序对数
 2.使用插入排序法进一步优化上述解决逆序对数的代码

@@ -11,7 +11,7 @@
 ### 1.3  优先队列的实现
 接口不变
 ```
-public interface Queue<E> {
+public interface Queues<E> {
     int getSize();
     boolean isEmpty();
     void enqueue(E e);
@@ -45,7 +45,6 @@ InOtherWords，不是满二叉树，缺失节点在右下方，把元素从左�
 
 -  right_Child = I\*2 + 1 
 
-
 索引从0开始：
 
 - parent(i) = (i-1) / 2； 
@@ -53,12 +52,14 @@ InOtherWords，不是满二叉树，缺失节点在右下方，把元素从左�
 -  right_Child = I\*2 + 2;
 
 #### 代码实现
-
 使用动态数组来实现一个最大堆  链接
-
+siftUp逻辑
+先将元素addLast到末尾，然后，分别与其父节点进行比较，如果比父节点大，那么二者交换位置，循环往复，直到遇到比其大的父节点
+就停止，形象的类似于"上浮"的操作
 
 siftDown逻辑：
-siftDown的逻辑是先将数组最后一个元素放到堆顶，这样确保 完全二叉树的性质不变。然后再siftDown
+siftDown的逻辑是先将数组最后一个元素放到堆顶，这样确保 完全二叉树的性质不变。然后再siftDown，依次看与子节点中最大的值比较，
+如果比它大，二者交换位置，类似于"下沉"操作
 
 使用Heapify会比一个一个加入到堆中快一倍，即O(n)级别的操作，快于 O(nlogn)
 

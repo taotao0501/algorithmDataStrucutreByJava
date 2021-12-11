@@ -115,8 +115,4 @@ public class MaxHeap<E extends Comparable<E>> {
         siftDown(0);
         return ret;
     }
-
-
-
-
 }
