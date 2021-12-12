@@ -1,5 +1,9 @@
 package Trees.BST;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Stack;
+
 /**
  * @Description:
  * @Author: Bentao She
@@ -37,6 +41,10 @@ public class BST<E extends Comparable<E>> {
         return size == 0;
     }
 
+    /**
+     * 增
+     * @param e
+     */
     public void add( E e) {
         root = add(root, e);
     }
@@ -50,7 +58,6 @@ public class BST<E extends Comparable<E>> {
 //            add(root, e);
 //        }
 //    }
-
 //    private void add(Node node, E e) {
 //        if(e.equals(node.e)) {
 //            return;
@@ -70,7 +77,13 @@ public class BST<E extends Comparable<E>> {
 //            add(node.right, e);
 //        }
 //    }
-    // 优化后的 add操作 递归写法
+
+    /**
+     * 增操作：递归写法
+     * @param node
+     * @param e
+     * @return
+     */
     private Node add(Node node, E e) {
        if(node == null) {
            size ++;
@@ -86,7 +99,10 @@ public class BST<E extends Comparable<E>> {
        return node;
     }
 
-    // add 非递归写法
+    /**
+     * 增操作：非递归写法
+     * @param e
+     */
     private void add2(E e) {
         if(root == null){
             root = new Node(e);
@@ -117,6 +133,11 @@ public class BST<E extends Comparable<E>> {
         }
     }
 
+    /**
+     * 查：
+     * @param e
+     * @return
+     */
     public boolean contains(E e) {
         return contains(root, e);
     }
@@ -137,12 +158,15 @@ public class BST<E extends Comparable<E>> {
         }
     }
 
-    // 前序遍历
+    /**
+     * 前序遍历：递归写法
+     */
     public void preOrder(){
         preOrder(root);
     }
 
     private void preOrder(Node node){
+        //先写遍历终止条件
         if(node == null){
             return;
         }
@@ -150,6 +174,106 @@ public class BST<E extends Comparable<E>> {
         preOrder(node.left);
         preOrder(node.right);
     }
+
+    /**
+     * 前序遍历：非递归写法
+     */
+    public void preOrderNR() {
+        Deque<Node> stack = new ArrayDeque<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            Node node = stack.pop();
+            System.out.println(node.e);
+            if(node.right != null) {
+                stack.push(node.right);
+            }
+            if(node.left != null){
+                stack.push(node.left);
+            }
+        }
+    }
+
+    /**
+     * 中序遍历：递归写法
+     */
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    private void inOrder(Node node) {
+        if(node == null){
+            return;
+        }
+        inOrder(node.left);
+        System.out.println(node.e);
+        inOrder(node.right);
+    }
+
+    /**
+     * 中序遍历的非递归写法 head == root
+     */
+    public void inOrderNR(Node head){
+        if(head == null) {
+            return;
+        }
+        Node cur = head;
+        Stack<Node> stack = new Stack<>();
+        while(!stack.isEmpty() || cur!= null) {
+            while(cur!=null){
+                stack.push(cur);
+                cur = cur.left;
+            }
+            Node node = stack.pop();
+            System.out.println(node.e + " ");
+            if(node.right !=null){
+                cur = node.right;
+            }
+        }
+    }
+
+    /**
+     * 后续遍历：递归写法
+     */
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    private void postOrder(Node node) {
+        if(node == null){
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.e);
+    }
+
+    /**
+     * 后续遍历：非递归写法，使用两个栈
+     * @param head
+     */
+    public void postOrderNR(Node head){
+        if(head == null) {
+            return;
+        }
+        Deque<Node> stack1= new ArrayDeque<>();
+        Deque<Node> stack2= new ArrayDeque<>();
+        stack1.push(head);
+        while(!stack1.isEmpty()){
+            Node node = stack1.pop();
+            stack2.push(node);
+            if(node.left!=null){
+                stack1.push(node.left);
+            }
+            if(node.right !=null){
+                stack1.push(node.right);
+            }
+        }
+        while(!stack2.isEmpty()) {
+            System.out.println(stack2.pop().e + " ");
+        }
+    }
+
+
 
     @Override
     public String toString() {
@@ -170,8 +294,9 @@ public class BST<E extends Comparable<E>> {
 
     private String generateDepthString(int depth){
         StringBuilder res = new StringBuilder();
-        for(int i = 0 ; i < depth ; i ++)
+        for(int i = 0 ; i < depth ; i ++) {
             res.append("--");
+        }
         return res.toString();
     }
 }

@@ -16,9 +16,23 @@ public class Main {
         for(int num : nums) {
             bst.add(num);
         }
-        bst.preOrder();
-        System.out.println();
+        /////////////////
+        //      5      //
+        //    /   \    //
+        //   3    6    //
+        //  / \    \   //
+        // 2  4     8  //
+        /////////////////
 
-        System.out.println(bst);
+//        bst.preOrder();
+
+//        System.out.println();
+//
+//        System.out.println(bst);
+
+//        bst.preOrderNR();
+        bst.inOrder();
+        System.out.println();
+        bst.postOrder();
     }
 }

@@ -9,7 +9,7 @@
 定义：一棵BST，是一个二叉树，其中每个结点都含有一个Comparable的键，且每个结点的键都大于其
 左子树的任意节点的键而小于右子树的任意结点的键。
 
-## 1. BST写法
+## 1. BST 写法
 ### 1.1 向二分搜索树中添加一个元素的递归和非递归写法，
 - 递归写法
 ```java
@@ -53,7 +53,25 @@ node.next = head;
 head = node;
 ```
 
+### 1.2 前序遍历
 
+#### 伪码以及思想
+
+<img src="E:\MD_Note\算法\img\BST前序遍历思想.png" style="zoom:40%;" />
+
+先访问根结点，然后访问左子树，再访问右子树。遍历的递归写法是 首先写递归终止的条件（与深度优先遍历和广度优先遍历一样）
+
+```java
+ private void preOrder(Node node){
+        //先写遍历终止条件
+        if(node == null){
+            return;
+        }
+        System.out.println(node.e);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+```
 
 
 
