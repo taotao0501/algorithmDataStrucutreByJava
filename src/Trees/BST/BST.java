@@ -1,8 +1,6 @@
 package Trees.BST;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @Description:
@@ -273,6 +271,27 @@ public class BST<E extends Comparable<E>> {
         }
     }
 
+    /**
+     * 层序遍历:和前序遍历的结构很相似，一个是栈，一个是队列
+     */
+    public void levelOrder(){
+        if(root == null){
+            return;
+        }
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty()){
+            Node cur = q.remove();
+            System.out.println(cur.e);
+            if(cur.left != null){
+                q.add(cur.left);
+            }
+            if(cur.right != null){
+                q.add(cur.right);
+            }
+        }
+
+    }
 
 
     @Override
