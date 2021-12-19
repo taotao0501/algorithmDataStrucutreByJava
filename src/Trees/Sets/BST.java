@@ -1,4 +1,4 @@
-package Trees.BST;
+package Trees.Sets;
 
 import java.util.*;
 
@@ -420,7 +420,7 @@ public class BST<E extends Comparable<E>> {
      *
      * @param e
      */
-    private void remove(E e) {
+    public void remove(E e) {
         root = remove(root, e);
     }
 
