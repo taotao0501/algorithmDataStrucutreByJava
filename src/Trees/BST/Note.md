@@ -73,6 +73,81 @@ head = node;
     }
 ```
 
+### 1.3 中/后序遍历
+
+```java
+//中序
+private void inOrder(Node node) {
+        if(node == null){
+            return;
+        }
+        inOrder(node.left);
+        System.out.println(node.e);
+        inOrder(node.right);
+    }
+//后续
+private void postOrder(Node node) {
+        if(node == null){
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.e);
+    }
+```
+
+### 1.4 快速的进行前后序遍历
+
+遍历过程中，对于每一个节点，都会访问这个节点三次：
+
+![](F:\Markdown_Note\算法\BST三种遍历思想.PNG)
+
+1. 在访问其左子树之前会访问一次；
+
+2. 访问其左子树之后又回到这个节点；
+
+3. 访问其右子树之后又回到这个节点。
+  **总共三次**
+
+  三种遍历方式对应与上图中这个节点三个紫色的访问时机真正的对这个节点进行访问操作（打印输出这个节点的值）
+
+  ![](F:\Markdown_Note\算法\BST遍历.PNG)
+
+- 前序
+  在每一次访问该节点的时候进行操作（打印输出）
+
+- 中序
+
+  在第二次访问该节点的时候进行操作
+
+- 后序
+
+  在第三次访问该节点的时候进行操作
+
+### 1.5 三种遍历方式的迭代写法
+
+1. 前序用一个栈
+
+```java
+public void preOrderNR() {
+        Deque<Node> stack = new ArrayDeque<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            Node node = stack.pop();
+            System.out.println(node.e);
+            if(node.right != null) {
+                stack.push(node.right);
+            }
+            if(node.left != null){
+                stack.push(node.left);
+            }
+        }
+    }
+```
+
+2. 中序用一个栈
+3. 
+
 
 
 

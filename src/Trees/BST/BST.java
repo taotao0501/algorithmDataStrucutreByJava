@@ -217,7 +217,7 @@ public class BST<E extends Comparable<E>> {
             return;
         }
         Node cur = head;
-        Stack<Node> stack = new Stack<>();
+        Deque<Node> stack = new ArrayDeque<>();
         while(!stack.isEmpty() || cur!= null) {
             while(cur!=null){
                 stack.push(cur);
