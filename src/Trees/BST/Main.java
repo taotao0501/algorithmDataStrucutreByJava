@@ -49,9 +49,9 @@ public class Main {
             bst.add(random.nextInt(10000));
         }
         List<Integer> nums = new ArrayList<>();
-        while(!bst.isEmpty()){
-            nums.add(bst.removeMin());
-        }
+//        while(!bst.isEmpty()){
+//            nums.add(bst.removeMin());
+//        }
         for (int i = 1; i < nums.size(); i++) {
             if(nums.get(i-1) > nums.get(i)) {
                 throw new IllegalArgumentException("Error!");
@@ -66,9 +66,9 @@ public class Main {
         }
 
         nums = new ArrayList<>();
-        while(!bst.isEmpty()) {
-            nums.add(bst.removeMax());
-        }
+//        while(!bst.isEmpty()) {
+//            nums.add(bst.removeMax());
+//        }
 
         System.out.println(nums);
         for(int i = 1 ; i < nums.size() ; i ++) {
