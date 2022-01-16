@@ -1,33 +1,46 @@
 package BinarySearch;
 
 /**
- * @Description: 二分法
+ * @Description: 二分法代码实现
  * @Author: Bentao She
- * @Date: 2021/12/27 22:58
+ * @Email: harrypotterandsbt@gmail.com
+ * @Date: 2022/1/5 13:20
  * @Version: V1.0
  **/
 
-
 public class BinarySearch {
 
-    public int search(int[] arr, int target) {
-        // 在[l,r)中取值
-        int l = 0, r=arr.length;
-        while(l < r) {
+    public int binarySearch(int[] arr, int target) {
+        int l = 0, r = arr.length -1;
+        while(l <= r) {
             int mid = l + (r-l)/2;
-            if(target == arr[mid]){
+            if(arr[mid] == target) {
                 return mid;
-            }
-            else if(arr[mid] > target){
-                r = mid;
-            }
-            else {
+            } else if(arr[mid] > target) {
+                r = mid - 1;
+            } else {
                 l = mid + 1;
             }
         }
         return -1;
     }
 
+    public int binarySearch2(int[] arr, int target) {
+        int l = 0, r = arr.length;
+        while(l < r) {
+            int mid = l + (r-l)/2;
+            if(arr[mid] == target) {
+                return mid;
+            } else if(arr[mid] > target) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    // Offer旋转数组的问题
     public int minArray(int[] numbers) {
         int l = 0, r = numbers.length - 1;
         while( l <= r) {
@@ -45,9 +58,12 @@ public class BinarySearch {
         return numbers[l];
     }
 
+
     public static void main(String[] args) {
-        int[] test = {2,2,2,0};
-        BinarySearch binarySearch = new BinarySearch();
-        System.out.println(binarySearch.minArray(test));
+        int[] arr = {1,4,6,7,12,18,44,56};
+        int target = 4;
+        int res = (new BinarySearch()).binarySearch2(arr, target);
+        System.out.println(res);
     }
+
 }
