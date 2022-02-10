@@ -58,7 +58,6 @@ public class BinarySearch {
         return numbers[l];
     }
 
-
     public static void main(String[] args) {
         int[] arr = {1,4,6,7,12,18,44,56};
         int target = 4;
