@@ -1,7 +1,7 @@
 package LeetCodeCompletePlan.Offer;
 
 /**
- * @Description:  47/48 未能通过 48
+ * @Description:  47/48 未能通过 47,48
  * @Author: Bentao She
  * @Email: harrypotterandsbt@gmail.com
  * @Date: 2022/2/11 15:06
