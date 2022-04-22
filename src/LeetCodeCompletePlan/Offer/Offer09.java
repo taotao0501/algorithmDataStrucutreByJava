@@ -44,6 +44,7 @@ import java.util.LinkedList;
 class Offer09 {
     Deque<Integer> stack1;
     Deque<Integer> stack2;
+
     public Offer09() {
         stack1 = new LinkedList<>();
         stack2 = new LinkedList<>();
@@ -54,11 +55,11 @@ class Offer09 {
     }
 
     public int deleteHead() {
-        if(stack2.isEmpty()){
-            if(stack1.isEmpty()){
+        if (stack2.isEmpty()) {
+            if (stack1.isEmpty()) {
                 return -1;
             } else {
-                while(!stack1.isEmpty()){
+                while (!stack1.isEmpty()) {
                     stack2.push(stack1.pop());
                 }
                 return stack2.pop();

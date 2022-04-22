@@ -1,14 +1,17 @@
 package Sort.selectionSort;
 
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
     private String name;
     private int score;
 
-    public Student(){};
+    public Student() {
+    }
 
-    public Student(String name,int score) {
+    ;
+
+    public Student(String name, int score) {
         this.name = name;
-        this.score =score;
+        this.score = score;
     }
 
     public String getName() {
@@ -29,21 +32,23 @@ public class Student implements Comparable<Student>{
 
     @Override
     public boolean equals(Object student) {
-        if(this == student) {
+        if (this == student) {
             return true;
         }
-        if(student == null) {
+        if (student == null) {
             return false;
         }
-        if(this.getClass() != student.getClass()) {
+        if (this.getClass() != student.getClass()) {
             return false;
         }
 
-        Student another = (Student)student;
+        Student another = (Student) student;
         return this.name.equals(another.name);
     }
 
-    /** 按score顺序,
+    /**
+     * 按score顺序,
+     *
      * @param another
      * @return
      */

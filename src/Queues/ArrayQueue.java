@@ -8,7 +8,7 @@ package Queues;
  * @Version: V1.0
  **/
 
-public class ArrayQueue<E> implements Queue{
+public class ArrayQueue<E> implements Queue {
 
     private Array<E> array;
 

@@ -37,15 +37,16 @@ public class BST<E extends Comparable<E>> {
         return size;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
     /**
      * 增
+     *
      * @param e
      */
-    public void add( E e) {
+    public void add(E e) {
         root = add(root, e);
     }
 
@@ -86,49 +87,47 @@ public class BST<E extends Comparable<E>> {
      * @return
      */
     private Node add(Node node, E e) {
-       if(node == null) {
-           size ++;
-           return new Node(e);
-       }
+        if (node == null) {
+            size++;
+            return new Node(e);
+        }
 
-       if( e.compareTo(node.e) < 0) {
-           node.left = add(node.left, e);
-       }
-       else if(e.compareTo(node.e) > 0) {
-           node.right = add(node.right, e);
-       }
-       return node;
+        if (e.compareTo(node.e) < 0) {
+            node.left = add(node.left, e);
+        } else if (e.compareTo(node.e) > 0) {
+            node.right = add(node.right, e);
+        }
+        return node;
     }
 
     /**
      * 增操作：非递归写法
+     *
      * @param e
      */
     private void add2(E e) {
-        if(root == null){
+        if (root == null) {
             root = new Node(e);
-            size ++;
+            size++;
             return;
         }
         Node p = root;
-        while(p != null){
-            if(e.compareTo(p.e) < 0){
-                if(p.left == null){
+        while (p != null) {
+            if (e.compareTo(p.e) < 0) {
+                if (p.left == null) {
                     p.left = new Node(e);
-                    size ++;
+                    size++;
                     return;
                 }
                 p = p.left;
-            }
-            else if(e.compareTo(p.e) > 0){
-                if(p.right == null){
+            } else if (e.compareTo(p.e) > 0) {
+                if (p.right == null) {
                     p.right = new Node(e);
-                    size ++;
+                    size++;
                     return;
                 }
                 p = p.right;
-            }
-            else {
+            } else {
                 return;
             }
         }
@@ -136,6 +135,7 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * 查：
+     *
      * @param e
      * @return
      */
@@ -143,18 +143,16 @@ public class BST<E extends Comparable<E>> {
         return contains(root, e);
     }
 
-    private boolean contains(Node node, E e){
-        if(node == null) {
+    private boolean contains(Node node, E e) {
+        if (node == null) {
             return false;
         }
 
-        if(e.compareTo(node.e) == 0){
+        if (e.compareTo(node.e) == 0) {
             return true;
-        }
-        else if(e.compareTo(node.e) < 0){
+        } else if (e.compareTo(node.e) < 0) {
             return contains(node.left, e);
-        }
-        else {
+        } else {
             return contains(node.right, e);
         }
     }
@@ -162,13 +160,13 @@ public class BST<E extends Comparable<E>> {
     /**
      * 前序遍历：递归写法
      */
-    public void preOrder(){
+    public void preOrder() {
         preOrder(root);
     }
 
-    private void preOrder(Node node){
+    private void preOrder(Node node) {
         //先写遍历终止条件
-        if(node == null){
+        if (node == null) {
             return;
         }
         System.out.println(node.e);
@@ -182,13 +180,13 @@ public class BST<E extends Comparable<E>> {
     public void preOrderNR() {
         Deque<Node> stack = new ArrayDeque<>();
         stack.push(root);
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             Node node = stack.pop();
             System.out.println(node.e);
-            if(node.right != null) {
+            if (node.right != null) {
                 stack.push(node.right);
             }
-            if(node.left != null){
+            if (node.left != null) {
                 stack.push(node.left);
             }
         }
@@ -202,7 +200,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     private void inOrder(Node node) {
-        if(node == null){
+        if (node == null) {
             return;
         }
         inOrder(node.left);
@@ -213,20 +211,20 @@ public class BST<E extends Comparable<E>> {
     /**
      * 中序遍历的非递归写法 head == root
      */
-    public void inOrderNR(Node head){
-        if(head == null) {
+    public void inOrderNR(Node head) {
+        if (head == null) {
             return;
         }
         Node cur = head;
         Deque<Node> stack = new ArrayDeque<>();
-        while(!stack.isEmpty() || cur!= null) {
-            while(cur!=null){
+        while (!stack.isEmpty() || cur != null) {
+            while (cur != null) {
                 stack.push(cur);
                 cur = cur.left;
             }
             Node node = stack.pop();
             System.out.println(node.e + " ");
-            if(node.right !=null){
+            if (node.right != null) {
                 cur = node.right;
             }
         }
@@ -240,7 +238,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     private void postOrder(Node node) {
-        if(node == null){
+        if (node == null) {
             return;
         }
         postOrder(node.left);
@@ -250,30 +248,30 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * 后续遍历：非递归写法，使用两个栈
+     *
      * @param head
      */
-    public void postOrderNR(Node head){
-        if(head == null) {
+    public void postOrderNR(Node head) {
+        if (head == null) {
             return;
         }
-        Deque<Node> stack1= new ArrayDeque<>();
-        Deque<Node> stack2= new ArrayDeque<>();
+        Deque<Node> stack1 = new ArrayDeque<>();
+        Deque<Node> stack2 = new ArrayDeque<>();
         stack1.push(head);
-        while(!stack1.isEmpty()){
+        while (!stack1.isEmpty()) {
             Node node = stack1.pop();
             stack2.push(node);
-            if(node.left!=null){
+            if (node.left != null) {
                 stack1.push(node.left);
             }
-            if(node.right !=null){
+            if (node.right != null) {
                 stack1.push(node.right);
             }
         }
-        while(!stack2.isEmpty()) {
+        while (!stack2.isEmpty()) {
             System.out.println(stack2.pop().e + " ");
         }
     }
-
 
 
     @Override
@@ -283,8 +281,8 @@ public class BST<E extends Comparable<E>> {
         return res.toString();
     }
 
-    private void generateBSTString(Node node, int depth, StringBuilder res){
-        if(node == null){
+    private void generateBSTString(Node node, int depth, StringBuilder res) {
+        if (node == null) {
             res.append(generateDepthString(depth) + "null\n");
             return;
         }
@@ -293,9 +291,9 @@ public class BST<E extends Comparable<E>> {
         generateBSTString(node.right, depth + 1, res);
     }
 
-    private String generateDepthString(int depth){
+    private String generateDepthString(int depth) {
         StringBuilder res = new StringBuilder();
-        for(int i = 0 ; i < depth ; i ++) {
+        for (int i = 0; i < depth; i++) {
             res.append("--");
         }
         return res.toString();

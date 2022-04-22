@@ -11,24 +11,22 @@ public class SortColorSolution {
     public void sortColors(int[] nums) {
         //循环不变量是 nums[0,zero] == 0; nums[zero+1,i-1] ==1 ;nums[two,r]==2
         // zero表示的就是 lt, two表示的是 gt
-        int zero = -1, i = 0, two= nums.length;
-        while(i < two){
-            if(nums[i] <1){
-                zero ++;
+        int zero = -1, i = 0, two = nums.length;
+        while (i < two) {
+            if (nums[i] < 1) {
+                zero++;
                 swap(nums, i, zero);
-                i ++;
-            }
-            else if(nums[i] > 1){
-                two --;
-                swap(nums, i ,two);
-            }
-            else {
-                i ++;
+                i++;
+            } else if (nums[i] > 1) {
+                two--;
+                swap(nums, i, two);
+            } else {
+                i++;
             }
         }
     }
 
-    private void swap(int[] arr, int i, int j){
+    private void swap(int[] arr, int i, int j) {
         int t = arr[i];
         arr[i] = arr[j];
         arr[j] = t;

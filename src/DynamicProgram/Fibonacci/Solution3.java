@@ -1,4 +1,5 @@
 package DynamicProgram.Fibonacci;
+
 import java.util.Arrays;
 /**
  * @Description: 动态规划
@@ -15,20 +16,20 @@ import java.util.Arrays;
 // 递归问题→重叠问题→记忆化搜索(自顶向下的解决问题) 动态规划(自底向上的解决问题)
 
 public class Solution3 {
-    public int fib(int n){
-        int[] memo = new int[n+1];
-        Arrays.fill(memo,-1);
+    public int fib(int n) {
+        int[] memo = new int[n + 1];
+        Arrays.fill(memo, -1);
 
         memo[0] = 0;
         memo[1] = 1;
-        for(int i=2; i<=n; i++){
-            memo[i] = memo[i-1] + memo[i-2];
+        for (int i = 2; i <= n; i++) {
+            memo[i] = memo[i - 1] + memo[i - 2];
         }
         return memo[n];
     }
 
     public static void main(String[] args) {
-        int n=100000;
+        int n = 100000;
         Solution3 solution = new Solution3();
         long startTime = System.currentTimeMillis();
         int res = solution.fib(n);

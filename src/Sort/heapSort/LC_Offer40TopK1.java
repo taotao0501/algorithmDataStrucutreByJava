@@ -35,25 +35,25 @@ import java.util.PriorityQueue;
 // 0 <= k <= arr.length <= 10000
 // 0 <= arr[i] <= 10000
 
-    // 使用最大堆作为容器，Java标准库默认是最小堆
+// 使用最大堆作为容器，Java标准库默认是最小堆
 
 public class LC_Offer40TopK1 {
     public int[] getLeastNumbers(int[] arr, int k) {
 
         PriorityQueue<Integer> pqMax = new PriorityQueue<>(Collections.reverseOrder());
-        for(int i = 0; i < k; i ++) {
+        for (int i = 0; i < k; i++) {
             pqMax.add(arr[i]);
         }
 
-        for(int i = k; i < arr.length; i ++) {
-            if( !pqMax.isEmpty() && arr[i] < pqMax.peek()) {
+        for (int i = k; i < arr.length; i++) {
+            if (!pqMax.isEmpty() && arr[i] < pqMax.peek()) {
                 pqMax.remove();
                 pqMax.add(arr[i]);
             }
         }
 
         int[] res = new int[k];
-        for (int i = 0; i < k ; i++) {
+        for (int i = 0; i < k; i++) {
             res[i] = pqMax.remove();
         }
         return res;

@@ -35,18 +35,18 @@ public class Array {
     }
 
     public void addLast(int e) {
-        if(size == data.length) {
+        if (size == data.length) {
             throw new IllegalArgumentException("AddLast filed, Array is full.");
         }
         data[size] = e;
-        size ++;
+        size++;
     }
 
-    public void insert(int index ,int e) {
-        if(size == data.length) {
+    public void insert(int index, int e) {
+        if (size == data.length) {
             throw new IllegalArgumentException("Insert filed, Array is full.");
         }
-        if(index < 0 || index > size) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
         }
     }

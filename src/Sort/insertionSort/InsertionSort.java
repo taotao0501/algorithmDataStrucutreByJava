@@ -11,34 +11,38 @@ import java.util.Arrays;
  **/
 
 public class InsertionSort {
-    private InsertionSort(){};
+    private InsertionSort() {
+    }
+
+    ;
 
     /**
      * 循环不变量：arr[0,i)有序，arr[i,n)无序
+     *
      * @param arr
      * @param <E>
      */
-    public static <E extends Comparable<E>> void sort(E[] arr){
-        for(int i=0; i < arr.length; i++){
-            for(int j=i; j>0 && arr[j].compareTo(arr[j-1]) <0; j--){
-                swap(arr, j, j-1);
+    public static <E extends Comparable<E>> void sort(E[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j > 0 && arr[j].compareTo(arr[j - 1]) < 0; j--) {
+                swap(arr, j, j - 1);
             }
         }
     }
 
-    public static <E extends Comparable<E>> void swap(E[] arr, int i, int j){
+    public static <E extends Comparable<E>> void swap(E[] arr, int i, int j) {
         E temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
-    public static <E extends Comparable<E>> void sort2(E[] arr){
-        for(int i=0; i < arr.length; i++){
+    public static <E extends Comparable<E>> void sort2(E[] arr) {
+        for (int i = 0; i < arr.length; i++) {
             // 小优化：找到arr[i]合适的位置，直接插入
             E t = arr[i];
             int j;
-            for(j=i; j>0 && t.compareTo(arr[j-1]) <0; j--){
-                arr[j] = arr[j-1];
+            for (j = i; j > 0 && t.compareTo(arr[j - 1]) < 0; j--) {
+                arr[j] = arr[j - 1];
             }
         }
     }
@@ -73,10 +77,11 @@ public class InsertionSort {
 
         //4. 降序数组排成升序数组
         int[] dataSize3 = {10000, 100000};
-        for(int n:dataSize3){
+        for (int n : dataSize3) {
             Integer[] reverseSortedArr = ArrayGenerator.generateReverseOrderedArray(n);
             SortingHelper.sortTest("InsertionSort2", reverseSortedArr);
             SortingHelper.sortTest("SelectionSort", reverseSortedArr);
-    }   }
+        }
+    }
 
 }

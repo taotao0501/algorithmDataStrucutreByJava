@@ -24,8 +24,8 @@ public class MinHeap<E extends Comparable<E>> {
 
     public MinHeap(E[] arr) {
         data = new Array<E>(arr);
-        if(arr.length != 1){
-            for(int i = parent(arr.length - 1); i >= 0; i --) {
+        if (arr.length != 1) {
+            for (int i = parent(arr.length - 1); i >= 0; i--) {
                 siftDown(i);
             }
         }
@@ -35,12 +35,12 @@ public class MinHeap<E extends Comparable<E>> {
         return data.getSize();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return data.isEmpty();
     }
 
     private int parent(int index) {
-        if(index == 0){
+        if (index == 0) {
             throw new IllegalArgumentException("index-0 doesn't have parent.");
         }
         return (index - 1) / 2;
@@ -60,14 +60,14 @@ public class MinHeap<E extends Comparable<E>> {
     }
 
     private void siftUp(int k) {
-        while(k > 0 && data.get(parent(k)).compareTo(data.get(k)) > 0){
+        while (k > 0 && data.get(parent(k)).compareTo(data.get(k)) > 0) {
             data.swap(k, parent(k));
             k = parent(k);
         }
     }
 
     public E findMin() {
-        if(data.getSize() == 0) {
+        if (data.getSize() == 0) {
             throw new IllegalArgumentException("Can not findMin when heap is empty.");
         }
         return data.get(0);
@@ -81,13 +81,13 @@ public class MinHeap<E extends Comparable<E>> {
     }
 
     public void siftDown(int k) {
-        while(leftChild(k) < data.getSize()) {
+        while (leftChild(k) < data.getSize()) {
             int j = leftChild(k);
-            if( j + 1 < data.getSize() && data.get( j + 1).compareTo(data.get(j)) < 0){
-                j ++;
+            if (j + 1 < data.getSize() && data.get(j + 1).compareTo(data.get(j)) < 0) {
+                j++;
             }
             // 上面代码确保 data[j] 是 leftChild 和 rightChild 中的较小值
-            if( data.get(k).compareTo(data.get(j)) < 0) {
+            if (data.get(k).compareTo(data.get(j)) < 0) {
                 break;
             }
             data.swap(k, j);

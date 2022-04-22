@@ -15,12 +15,16 @@ import java.util.List;
 
 public class Offer06 {
     private class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 
     List<Integer> record = new ArrayList<>();
+
     public int[] reversePrint(ListNode head) {
         recur(head);
         int len = record.size();
@@ -30,9 +34,10 @@ public class Offer06 {
         }
         return res;
     }
+
     //递归
     private void recur(ListNode head) {
-        if(head == null) {
+        if (head == null) {
             return;
         }
         recur(head.next);
@@ -42,7 +47,7 @@ public class Offer06 {
     //解法2 栈
     public int[] reversePrintByStack(ListNode head) {
         Deque<Integer> record2 = new ArrayDeque<>();
-        while(head != null) {
+        while (head != null) {
             record2.push(head.val);
             head = head.next;
         }

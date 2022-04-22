@@ -19,10 +19,13 @@ import java.util.Map;
 public class Offer07RebuildBST {
 
     public class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode(int x) { val = x; }
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
     }
 
     private Map<Integer, Integer> indexMap;
@@ -30,16 +33,16 @@ public class Offer07RebuildBST {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         int n = inorder.length;
         indexMap = new HashMap<>();
-        for (int i = 0; i < n ; i++) {
+        for (int i = 0; i < n; i++) {
             indexMap.put(inorder[i], i);
         }
-        return myBuildTree(preorder, inorder, 0, n-1, 0, n-1);
+        return myBuildTree(preorder, inorder, 0, n - 1, 0, n - 1);
     }
 
     //递归
     private TreeNode myBuildTree(int[] preorder, int[] inorder, int preorderLeft, int preorderRight,
                                  int inorderLeft, int inorderRight) {
-        if(preorderLeft > preorderRight) {
+        if (preorderLeft > preorderRight) {
             return null;
         }
         //获取root结点在preorder的索引，就是第一个
@@ -49,8 +52,8 @@ public class Offer07RebuildBST {
         int leftSubTreeSize = inorderRoot - inorderLeft;
 
         root.left = myBuildTree(preorder, inorder,
-                preorderLeft + 1, preorderLeft + leftSubTreeSize, inorderLeft, inorderRoot-1);
-        root.right = myBuildTree(preorder,inorder,
+                preorderLeft + 1, preorderLeft + leftSubTreeSize, inorderLeft, inorderRoot - 1);
+        root.right = myBuildTree(preorder, inorder,
                 preorderLeft + 1 + leftSubTreeSize, preorderRight, inorderRoot + 1, inorderRight);
         return root;
     }

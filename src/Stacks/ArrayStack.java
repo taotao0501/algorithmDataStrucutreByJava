@@ -8,7 +8,7 @@ package Stacks;
  * @Version: V1.0
  **/
 
-public class ArrayStack<E> implements Stack<E>{
+public class ArrayStack<E> implements Stack<E> {
 
     private Array<E> array;
 
@@ -45,18 +45,18 @@ public class ArrayStack<E> implements Stack<E>{
         return array.getLast();
     }
 
-    public int getCapacity(){
+    public int getCapacity() {
         return array.getCapacity();
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder res = new StringBuilder();
         res.append("Stack: ");
         res.append('[');
-        for(int i = 0 ; i < array.getSize() ; i ++){
+        for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));
-            if(i != array.getSize() - 1) {
+            if (i != array.getSize() - 1) {
                 res.append(", ");
             }
         }

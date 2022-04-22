@@ -14,14 +14,15 @@ import java.util.Arrays;
 
 public class MergeSortTrack {
 
-    private MergeSortTrack(){}
+    private MergeSortTrack() {
+    }
 
-    public static <E extends Comparable<E>> void sort(E[] arr){
+    public static <E extends Comparable<E>> void sort(E[] arr) {
 
         sort(arr, 0, arr.length - 1, 0);
     }
 
-    private static <E extends Comparable<E>> void sort(E[] arr, int l, int r, int depth){
+    private static <E extends Comparable<E>> void sort(E[] arr, int l, int r, int depth) {
 
         // 生成深度字符串
         String depthString = generateDepthString(depth);
@@ -46,44 +47,45 @@ public class MergeSortTrack {
         // 打印 merge 后的数组
         System.out.print(depthString);
         System.out.print(String.format("after mergesort arr[%d, %d] :", l, r));
-        for(E e: arr)
+        for (E e : arr)
             System.out.print(e + " ");
         System.out.println();
     }
 
-    private static String generateDepthString(int depth){
+    private static String generateDepthString(int depth) {
         StringBuilder res = new StringBuilder();
-        for(int i = 0 ; i < depth ; i ++)
+        for (int i = 0; i < depth; i++)
             res.append("--");
         return res.toString();
     }
 
 
-    private static <E extends Comparable<E>> void merge(E[] arr, int l, int mid, int r){
+    private static <E extends Comparable<E>> void merge(E[] arr, int l, int mid, int r) {
 
         E[] temp = Arrays.copyOfRange(arr, l, r + 1);
 
         int i = l, j = mid + 1;
 
         // 每轮循环为 arr[k] 赋值
-        for(int k = l; k <= r; k ++){
+        for (int k = l; k <= r; k++) {
 
-            if(i > mid){
-                arr[k] = temp[j - l]; j ++;
-            }
-            else if(j > r){
-                arr[k] = temp[i - l]; i ++;
-            }
-            else if(temp[i - l].compareTo(temp[j - l]) <= 0){
-                arr[k] = temp[i - l]; i ++;
-            }
-            else{
-                arr[k] = temp[j - l]; j ++;
+            if (i > mid) {
+                arr[k] = temp[j - l];
+                j++;
+            } else if (j > r) {
+                arr[k] = temp[i - l];
+                i++;
+            } else if (temp[i - l].compareTo(temp[j - l]) <= 0) {
+                arr[k] = temp[i - l];
+                i++;
+            } else {
+                arr[k] = temp[j - l];
+                j++;
             }
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Integer[] arr = {7, 1, 4, 2, 8, 3, 6, 5};
         SortingHelper.sortTest("MergeSortTrack", arr);
     }

@@ -2,7 +2,7 @@ package Sort.selectionSort;
 
 import java.util.Comparator;
 
-public class NameComparator implements Comparator<Person2>{
+public class NameComparator implements Comparator<Person2> {
 
     @Override
     public int compare(Person2 o1, Person2 o2) {

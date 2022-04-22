@@ -14,19 +14,22 @@ import java.util.Deque;
  **/
 
 public class ShellSort {
-    private ShellSort(){};
+    private ShellSort() {
+    }
+
+    ;
 
     // h序列：1, 2, 4, 8,
-    public static <E extends Comparable<E>> void sort(E[] arr){
+    public static <E extends Comparable<E>> void sort(E[] arr) {
         int len = arr.length;
-        int h = len /2;
-        while(h>=1){
-            for(int start = 0; start < h; start ++){
+        int h = len / 2;
+        while (h >= 1) {
+            for (int start = 0; start < h; start++) {
                 // 对 arr[start, start + h, start + 2h, start + 3h ...], 进行插入排序
-                for(int i = start + h; i < len; i += h){
+                for (int i = start + h; i < len; i += h) {
                     E t = arr[i];
                     int j;
-                    for(j = i; j - h >= 0 && t.compareTo(arr[j - h]) < 0; j -= h)
+                    for (j = i; j - h >= 0 && t.compareTo(arr[j - h]) < 0; j -= h)
                         arr[j] = arr[j - h];
                     arr[j] = t;
                 }
@@ -36,19 +39,19 @@ public class ShellSort {
     }
 
     //第二种方式:不需要分组后依次插入，直接就开始插入
-    public static <E extends Comparable<E>> void sort2(E[] arr){
+    public static <E extends Comparable<E>> void sort2(E[] arr) {
         int len = arr.length;
-        int h = len /2;
-        while(h>=1){
-            for(int i=h; i<len; i++){
+        int h = len / 2;
+        while (h >= 1) {
+            for (int i = h; i < len; i++) {
                 E t = arr[i];
                 int j;
-                for(j = i; j-h>=0 && t.compareTo(arr[j-h]) <0; j-=h){
-                    arr[j] = arr[j-h];
+                for (j = i; j - h >= 0 && t.compareTo(arr[j - h]) < 0; j -= h) {
+                    arr[j] = arr[j - h];
                 }
                 arr[j] = t;
             }
-            h /=2;
+            h /= 2;
         }
     }
 
@@ -56,15 +59,15 @@ public class ShellSort {
         int len = arr.length;
         int h = 1;
 
-        while(h < len)
+        while (h < len)
             h = 3 * h + 1;
         // 1, 4, 13, 40 ...
 
-        while(h >= 1){
-            for(int i = h; i < len; i ++){
+        while (h >= 1) {
+            for (int i = h; i < len; i++) {
                 E t = arr[i];
                 int j;
-                for(j = i; j - h >= 0 && t.compareTo(arr[j - h]) < 0; j -= h)
+                for (j = i; j - h >= 0 && t.compareTo(arr[j - h]) < 0; j -= h)
                     arr[j] = arr[j - h];
                 arr[j] = t;
             }

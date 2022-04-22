@@ -37,7 +37,7 @@ public class Offer03 {
         Map<Integer, Integer> record = new HashMap<>();
         int count;
         for (int num : nums) {
-            count = record.getOrDefault(num,0) + 1;
+            count = record.getOrDefault(num, 0) + 1;
             record.put(num, count);
             if (count > 1) {
                 return num;
@@ -45,12 +45,13 @@ public class Offer03 {
         }
         return -1;
     }
+
     //长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内,
     // 参考https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/solution/jian-zhi-offer-03-shu-zu-zhong-zhong-fu-42tp8/
     public int way2(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            while(nums[i] != i) {
-                if( nums[nums[i]] == nums[i]) {
+            while (nums[i] != i) {
+                if (nums[nums[i]] == nums[i]) {
                     return nums[i];
                 }
                 swap(nums, i, nums[i]);

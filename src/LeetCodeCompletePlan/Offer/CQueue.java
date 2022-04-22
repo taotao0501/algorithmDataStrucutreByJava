@@ -14,6 +14,7 @@ import java.util.Deque;
 public class CQueue {
     Deque<Integer> stackIn;
     Deque<Integer> stackOut;
+
     public CQueue() {
         stackIn = new ArrayDeque<>();
         stackOut = new ArrayDeque<>();
@@ -24,10 +25,10 @@ public class CQueue {
     }
 
     public int deleteHead() {
-        while(stackIn.size() > 0){
+        while (stackIn.size() > 0) {
             stackOut.push(stackIn.pop());
         }
-        if(stackOut.size() > 0){
+        if (stackOut.size() > 0) {
             return stackOut.pop();
         }
         return -1;

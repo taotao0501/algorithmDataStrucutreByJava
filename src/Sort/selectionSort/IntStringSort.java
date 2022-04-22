@@ -48,7 +48,7 @@ public class IntStringSort {
         System.out.println("=================");
         //Collections.sort(StringList);
         Collections.reverse(StringList);
-        Iterator <String> StringSort = StringList.iterator();
+        Iterator<String> StringSort = StringList.iterator();
         while (StringSort.hasNext()) {
             System.out.println(StringSort.next());
         }

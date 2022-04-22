@@ -33,16 +33,14 @@ package LeetCodeCompletePlan.Offer;
 public class Offer11 {
     public int minArray(int[] numbers) {
         int l = 0, r = numbers.length - 1;
-        while( l <= r) {
-            int mid = l + (r-l)/2 ;
-            if(numbers[mid] > numbers[r]) {
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (numbers[mid] > numbers[r]) {
                 l = mid + 1;
-            }
-            else if( numbers[mid] < numbers[r]){
+            } else if (numbers[mid] < numbers[r]) {
                 r = mid;
-            }
-            else {
-                r = r -1;
+            } else {
+                r = r - 1;
             }
         }
         return numbers[l];

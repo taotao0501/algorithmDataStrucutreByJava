@@ -46,23 +46,21 @@ package LeetCodeCompletePlan.Offer;
 public class Offer04 {
 
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
-        if(matrix == null || matrix.length == 0 ){
+        if (matrix == null || matrix.length == 0) {
             return false;
         }
         int n = matrix.length;
         int m = matrix[0].length;
         // 2021-9-22
-        int i = n-1, j= 0, t;
-        while(i>=0 && j<m){
+        int i = n - 1, j = 0, t;
+        while (i >= 0 && j < m) {
             t = matrix[i][j];
-            if(target == t){
+            if (target == t) {
                 return true;
-            }
-            else if(target <t){
-                i --;
-            }
-            else {
-                j ++;
+            } else if (target < t) {
+                i--;
+            } else {
+                j++;
             }
         }
         return false;

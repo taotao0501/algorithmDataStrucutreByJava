@@ -5,24 +5,25 @@ import java.util.Random;
 
 public class QuickSort {
 
-    private QuickSort(){}
+    private QuickSort() {
+    }
 
-    public static <E extends Comparable<E>> void sort(E[] arr){
+    public static <E extends Comparable<E>> void sort(E[] arr) {
 
         Random rnd = new Random();
         sort(arr, 0, arr.length - 1, rnd);
     }
 
-    private static <E extends Comparable<E>> void sort(E[] arr, int l, int r, Random rnd){
+    private static <E extends Comparable<E>> void sort(E[] arr, int l, int r, Random rnd) {
 
-        if(l >= r) return;
+        if (l >= r) return;
 
         int p = partition(arr, l, r, rnd);
         sort(arr, l, p - 1, rnd);
         sort(arr, p + 1, r, rnd);
     }
 
-    private static <E extends Comparable<E>> int partition(E[] arr, int l, int r, Random rnd){
+    private static <E extends Comparable<E>> int partition(E[] arr, int l, int r, Random rnd) {
 
         // 生成 [l, r] 之间的随机索引
         int p = l + rnd.nextInt(r - l + 1);
@@ -30,9 +31,9 @@ public class QuickSort {
 
         // arr[l+1...j] < v ; arr[j+1...i] >= v
         int j = l;
-        for(int i = l + 1; i <= r; i ++)
-            if(arr[i].compareTo(arr[l]) < 0){
-                j ++;
+        for (int i = l + 1; i <= r; i++)
+            if (arr[i].compareTo(arr[l]) < 0) {
+                j++;
                 swap(arr, i, j);
             }
 
@@ -40,22 +41,22 @@ public class QuickSort {
         return j;
     }
 
-    public static <E extends Comparable<E>> void sort2ways(E[] arr){
+    public static <E extends Comparable<E>> void sort2ways(E[] arr) {
 
         Random rnd = new Random();
         sort2ways(arr, 0, arr.length - 1, rnd);
     }
 
-    private static <E extends Comparable<E>> void sort2ways(E[] arr, int l, int r, Random rnd){
+    private static <E extends Comparable<E>> void sort2ways(E[] arr, int l, int r, Random rnd) {
 
-        if(l >= r) return;
+        if (l >= r) return;
 
         int p = partition2ways(arr, l, r, rnd);
         sort2ways(arr, l, p - 1, rnd);
         sort2ways(arr, p + 1, r, rnd);
     }
 
-    private static <E extends Comparable<E>> int partition2ways(E[] arr, int l, int r, Random rnd){
+    private static <E extends Comparable<E>> int partition2ways(E[] arr, int l, int r, Random rnd) {
 
         // 生成 [l, r] 之间的随机索引
         int p = l + rnd.nextInt(r - l + 1);
@@ -63,35 +64,35 @@ public class QuickSort {
 
         // arr[l+1...i-1] <= v; arr[j+1...r] >= v
         int i = l + 1, j = r;
-        while(true){
+        while (true) {
 
-            while(i <= j && arr[i].compareTo(arr[l]) < 0)
-                i ++;
+            while (i <= j && arr[i].compareTo(arr[l]) < 0)
+                i++;
 
-            while(j >= i && arr[j].compareTo(arr[l]) > 0)
-                j --;
+            while (j >= i && arr[j].compareTo(arr[l]) > 0)
+                j--;
 
-            if(i >= j) break;
+            if (i >= j) break;
 
             swap(arr, i, j);
 
-            i ++;
-            j --;
+            i++;
+            j--;
         }
 
         swap(arr, l, j);
         return j;
     }
 
-    public static <E extends Comparable<E>> void sort3ways(E[] arr){
+    public static <E extends Comparable<E>> void sort3ways(E[] arr) {
 
         Random rnd = new Random();
         sort3ways(arr, 0, arr.length - 1, rnd);
     }
 
-    private static <E extends Comparable<E>> void sort3ways(E[] arr, int l, int r, Random rnd){
+    private static <E extends Comparable<E>> void sort3ways(E[] arr, int l, int r, Random rnd) {
 
-        if(l >= r) return;
+        if (l >= r) return;
 
 
         /** 三路快速排序的 partition 过程 **/
@@ -102,19 +103,17 @@ public class QuickSort {
 
         // arr[l + 1, lt] < v, arr[lt + 1, i - 1] == v, arr[gt, r] > v
         int lt = l, i = l + 1, gt = r + 1;
-        while(i < gt){
+        while (i < gt) {
 
-            if(arr[i].compareTo(arr[l]) < 0){
-                lt ++;
+            if (arr[i].compareTo(arr[l]) < 0) {
+                lt++;
                 swap(arr, i, lt);
-                i ++;
-            }
-            else if(arr[i].compareTo(arr[l]) > 0){
-                gt --;
+                i++;
+            } else if (arr[i].compareTo(arr[l]) > 0) {
+                gt--;
                 swap(arr, i, gt);
-            }
-            else{ // arr[i] == v
-                i ++;
+            } else { // arr[i] == v
+                i++;
             }
         }
 
@@ -127,14 +126,14 @@ public class QuickSort {
         sort3ways(arr, gt, r, rnd);
     }
 
-    private static <E> void swap(E[] arr, int i, int j){
+    private static <E> void swap(E[] arr, int i, int j) {
 
         E t = arr[i];
         arr[i] = arr[j];
         arr[j] = t;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         int n = 1000000;
 

@@ -45,7 +45,7 @@ public class Main {
         int n = 1000;
 
         // test removeMin
-        for (int i = 0; i < n ; i++) {
+        for (int i = 0; i < n; i++) {
             bst.add(random.nextInt(10000));
         }
         List<Integer> nums = new ArrayList<>();
@@ -53,7 +53,7 @@ public class Main {
 //            nums.add(bst.removeMin());
 //        }
         for (int i = 1; i < nums.size(); i++) {
-            if(nums.get(i-1) > nums.get(i)) {
+            if (nums.get(i - 1) > nums.get(i)) {
                 throw new IllegalArgumentException("Error!");
             }
         }
@@ -61,7 +61,7 @@ public class Main {
 
 
         // test removeMax
-        for(int i = 0 ; i < n ; i ++) {
+        for (int i = 0; i < n; i++) {
             bst.add(random.nextInt(10000));
         }
 
@@ -71,8 +71,8 @@ public class Main {
 //        }
 
         System.out.println(nums);
-        for(int i = 1 ; i < nums.size() ; i ++) {
-            if(nums.get(i - 1) < nums.get(i)) {
+        for (int i = 1; i < nums.size(); i++) {
+            if (nums.get(i - 1) < nums.get(i)) {
                 throw new IllegalArgumentException("Error!");
             }
         }

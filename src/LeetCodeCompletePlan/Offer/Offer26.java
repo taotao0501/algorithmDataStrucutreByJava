@@ -11,10 +11,10 @@ package LeetCodeCompletePlan.Offer;
 public class Offer26 {
     //正确的解法
     public boolean isSubStructure(TreeNode A, TreeNode B) {
-        if(A == null || B == null) {
+        if (A == null || B == null) {
             return false;
         }
-        if(recur(A,B)) {
+        if (recur(A, B)) {
             return true;
         }
         return (isSubStructure(A.left, B) || isSubStructure(A.right, B));
@@ -28,11 +28,11 @@ public class Offer26 {
         // if( a == null || b == null) {
         //     return false;
         // }
-        if( b == null)
+        if (b == null)
             return true;
-        if( a == null)
+        if (a == null)
             return false;
-        if( a.val != b.val) {
+        if (a.val != b.val) {
             return false;
         }
         return recur(a.left, b.left) && recur(a.right, b.right);

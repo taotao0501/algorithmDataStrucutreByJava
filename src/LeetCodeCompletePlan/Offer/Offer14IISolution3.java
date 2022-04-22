@@ -15,15 +15,15 @@ public class Offer14IISolution3 {
 
     public int cuttingRope(int n) {
         BigInteger[] memo = new BigInteger[n + 1];
-        Arrays.fill(memo,BigInteger.valueOf(1));
+        Arrays.fill(memo, BigInteger.valueOf(1));
         for (int i = 2; i <= n; i++) {
-            for (int j = 1; j < i ; j++) {
+            for (int j = 1; j < i; j++) {
                 BigInteger secondPra = BigInteger.valueOf(j * (i - j));
-                if(memo[i] == null) {
+                if (memo[i] == null) {
                     throw new IllegalArgumentException("Why secondPra became null");
                 }
                 memo[i] = memo[i].max(secondPra);
-                memo[i] = memo[i].max(memo[i-j].multiply(BigInteger.valueOf(j)));
+                memo[i] = memo[i].max(memo[i - j].multiply(BigInteger.valueOf(j)));
             }
         }
         return memo[n].mod(BigInteger.valueOf(1000000007)).intValue();

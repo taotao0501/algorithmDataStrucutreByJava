@@ -485,34 +485,35 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * floor操作：在BST中寻找 不大于定数值e的最大值
+     *
      * @param e
      * @return
      */
     public E floor(E e) {
-        if(size ==0 || e.compareTo(minimum()) < 0) {
+        if (size == 0 || e.compareTo(minimum()) < 0) {
             return null;
         }
         Node floorNode = floor(root, e);
         return floorNode.e;
     }
 
-    private Node floor(Node node, E e){
-        if(node == null){
+    private Node floor(Node node, E e) {
+        if (node == null) {
             return null;
         }
 
-        if(e.compareTo(node.e) == 0){
+        if (e.compareTo(node.e) == 0) {
             return node;
         }
 
-        if(e.compareTo(node.e) < 0){
-            return floor(node.left,e);
+        if (e.compareTo(node.e) < 0) {
+            return floor(node.left, e);
         }
 
         //如果node 有可能是 e 的 floor结点，也有可能不是（存在比 node.e 大但是小于 e 的其余节点）
         // 需要尝试向node的右子树寻找一下
         Node tempNode = floor(node.right, e);
-        if(tempNode != null){
+        if (tempNode != null) {
             return tempNode;
         }
         return node;
@@ -520,41 +521,44 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * floor操作：在BST中寻找不小于定数值e的最小值
+     *
      * @param e
      * @return
      */
-    public E ceil(E e){
-        if(size == 0 || e.compareTo(root.e) > 0){
+    public E ceil(E e) {
+        if (size == 0 || e.compareTo(root.e) > 0) {
             return null;
         }
         Node ceilNode = ceil(root, e);
         return ceilNode.e;
     }
 
-    private Node ceil(Node node, E e){
-        if(node == null){
+    private Node ceil(Node node, E e) {
+        if (node == null) {
             return null;
         }
 
-        if(e.compareTo(node.e) == 0){
+        if (e.compareTo(node.e) == 0) {
             return node;
         }
 
-        if(e.compareTo(node.e) > 0){
+        if (e.compareTo(node.e) > 0) {
             return ceil(node.right, e);
         }
 
         //如果node有可能是 e 的ceil结点，也有可能不是（存在比 node.e 小但是大于 e 的其余节点）
         // 需要尝试向node的左子树寻找一下
         Node tempNode = ceil(node.left, e);
-        if(tempNode != null){
+        if (tempNode != null) {
             return tempNode;
         }
         return node;
     }
 
-    /** 拓展： select && rank方法
+    /**
+     * 拓展： select && rank方法
      * 找排名为K的键（树中正好右k个小于它的键），做select需要重新维护一个变量深度，之后再说吧。
+     *
      * @return
      */
 //    public E select(int k){
@@ -573,23 +577,20 @@ public class BST<E extends Comparable<E>> {
 //    public int rank(){
 //        return
 //    }
-
-
-
     public static void main(String[] args) {
 
         BST<Integer> bst = new BST<>();
-        for(int i = 1; i < 10; i += 2) {
+        for (int i = 1; i < 10; i += 2) {
             bst.add(i);
         }
 
         System.out.print("floor : ");
-        for(int i = 0; i <= 10; i ++)
+        for (int i = 0; i <= 10; i++)
             System.out.print(bst.floor(i) + " ");
         System.out.println();
 
         System.out.print("ceil  : ");
-        for(int i = 0; i <= 10; i ++)
+        for (int i = 0; i <= 10; i++)
             System.out.print(bst.ceil(i) + " ");
         System.out.println();
     }
@@ -602,8 +603,8 @@ public class BST<E extends Comparable<E>> {
         return res.toString();
     }
 
-    private void generateBSTString(Node node, int depth, StringBuilder res){
-        if(node == null){
+    private void generateBSTString(Node node, int depth, StringBuilder res) {
+        if (node == null) {
             res.append(generateDepthString(depth) + "null\n");
             return;
         }
@@ -612,9 +613,9 @@ public class BST<E extends Comparable<E>> {
         generateBSTString(node.right, depth + 1, res);
     }
 
-    private String generateDepthString(int depth){
+    private String generateDepthString(int depth) {
         StringBuilder res = new StringBuilder();
-        for(int i = 0 ; i < depth ; i ++) {
+        for (int i = 0; i < depth; i++) {
             res.append("--");
         }
         return res.toString();

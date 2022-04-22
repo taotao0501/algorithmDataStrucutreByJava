@@ -12,22 +12,22 @@ public class Offer13Solution {
 
     public int movingCount(int m, int n, int k) {
         boolean[][] visited = new boolean[m][n];
-        return dfs(0,0,m,n,k,visited);
+        return dfs(0, 0, m, n, k, visited);
     }
 
     public int dfs(int i, int j, int m, int n, int k,
                    boolean[][] visited) {
-        if(i >= m || j>= n || k < getSum(i) + getSum(j) || visited[i][j]) {
+        if (i >= m || j >= n || k < getSum(i) + getSum(j) || visited[i][j]) {
             return 0;
         }
         visited[i][j] = true;
-        return 1 + dfs(i + 1, j ,m ,n, k, visited) + dfs(i, j + 1 ,m ,n, k, visited);
+        return 1 + dfs(i + 1, j, m, n, k, visited) + dfs(i, j + 1, m, n, k, visited);
 
     }
 
     private int getSum(int num) {
         int res = 0;
-        while( num != 0) {
+        while (num != 0) {
             int s = num % 10;
             res += s;
             num /= 10;

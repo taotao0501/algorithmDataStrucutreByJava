@@ -1,6 +1,7 @@
 package Sort.heapSort;
 
 import java.util.PriorityQueue;
+
 /**
  * @Description: 优先队列解决LeetCode 215号问题
  * @Author: Bentao She
@@ -39,7 +40,7 @@ import java.util.PriorityQueue;
 public class LC215 {
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> pqMin = new PriorityQueue<>();
-        for (int i = 0; i < k ; i++) {
+        for (int i = 0; i < k; i++) {
             pqMin.add(nums[i]);
         }
 

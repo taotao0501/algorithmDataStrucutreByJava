@@ -9,65 +9,61 @@ import Sort.quickSort.QuickSort3ways;
 
 public class SortingHelper {
 
-    private SortingHelper(){}
+    private SortingHelper() {
+    }
 
-    public static <E extends Comparable<E>> boolean isSorted(E[] arr){
+    public static <E extends Comparable<E>> boolean isSorted(E[] arr) {
 
-        for(int i = 1; i < arr.length; i ++)
-            if(arr[i - 1].compareTo(arr[i]) > 0)
+        for (int i = 1; i < arr.length; i++)
+            if (arr[i - 1].compareTo(arr[i]) > 0)
                 return false;
         return true;
     }
 
-    public static <E extends Comparable<E>> void sortTest(String sortname, E[] arr){
+    public static <E extends Comparable<E>> void sortTest(String sortname, E[] arr) {
 
         long startTime = System.nanoTime();
-        if(sortname.equals("SelectionSort"))
+        if (sortname.equals("SelectionSort"))
             SelectionSort.sort(arr);
-        else if(sortname.equals("InsertionSort"))
+        else if (sortname.equals("InsertionSort"))
             InsertionSort.sort(arr);
-        else if(sortname.equals("MergeSort"))
+        else if (sortname.equals("MergeSort"))
             MergeSort.sort(arr);
-        else if(sortname.equals("MergeSortTrack")){
+        else if (sortname.equals("MergeSortTrack")) {
             MergeSortTrack.sort(arr);
-        }
-        else if (sortname.equals("MergeSort2")){
+        } else if (sortname.equals("MergeSort2")) {
             MergeSort.sort2(arr);
-        }
-        else if(sortname.equals("MergeSortBU"))
+        } else if (sortname.equals("MergeSortBU"))
             MergeSortBU.sortBU(arr);
-        else if(sortname.equals("MergeSortBU2"))
+        else if (sortname.equals("MergeSortBU2"))
             MergeSortBU.sortBU2(arr);
-        else if(sortname.equals("QuickSort1")){
+        else if (sortname.equals("QuickSort1")) {
             Sort.quickSort.QuickSort.sort(arr);
-        }
-        else if(sortname.equals("QuickSortRandom")){
+        } else if (sortname.equals("QuickSortRandom")) {
             Sort.quickSort.QuickSortOptimizedByRandom.sort(arr);
-        }
-        else if(sortname.equals("QuickSort"))
+        } else if (sortname.equals("QuickSort"))
             QuickSort.sort(arr);
-        else if(sortname.equals("QuickSortOptimizedByInsertion"))
+        else if (sortname.equals("QuickSortOptimizedByInsertion"))
             QucikSortOptimizedByInsertionSort.sort(arr);
-        else if(sortname.equals("QuickSort2Ways"))
+        else if (sortname.equals("QuickSort2Ways"))
             QuickSort2ways.sort(arr);
-        else if(sortname.equals("QuickSort3Ways"))
+        else if (sortname.equals("QuickSort3Ways"))
             QuickSort3ways.sort(arr);
-        else if(sortname.equals("HeapSort"))
+        else if (sortname.equals("HeapSort"))
             HeapSort.sort(arr);
-        else if(sortname.equals("HeapSort2")){
+        else if (sortname.equals("HeapSort2")) {
             Sort.heapSort.MaxHeap.HeapSort.sort2(arr);
-        }
-        else if(sortname.equals("BubbleSort"))
+        } else if (sortname.equals("BubbleSort"))
             BubbleSort.sort(arr);
-        else if(sortname.equals("ShellSort"))
+        else if (sortname.equals("ShellSort"))
             ShellSort.sort2(arr);
-        else if(sortname.equals("ShellSort3"))
+        else if (sortname.equals("ShellSort3"))
             Sort.shellSort.ShellSort.sort3(arr);
         long endTime = System.nanoTime();
 
         double time = (endTime - startTime) / 1000000000.0;
 
-        if(!SortingHelper.isSorted(arr))
+        if (!SortingHelper.isSorted(arr))
             throw new RuntimeException(sortname + " failed");
         System.out.println(String.format("%s , n = %d : %f s", sortname, arr.length, time));
     }

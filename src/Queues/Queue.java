@@ -10,8 +10,12 @@ package Queues;
 public interface Queue<E> {
 
     int getSize();
+
     boolean isEmpty(E e);
+
     void enqueue(E e);
+
     E dequeue();
+
     E getFront();
 }
