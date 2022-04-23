@@ -15,7 +15,7 @@ public class Array<E> {
     // 构造函数，传入数组的容量capacity构造Array
     public Array(int capacity){
         data = (E[]) new Object[capacity];
-        size = 0;
+        size = 0; //没有元素的时候 size指向索引0
     }
 
     // 无参数的构造函数，默认数组的容量capacity=10
@@ -70,6 +70,14 @@ public class Array<E> {
         return data[index];
     }
 
+    public E getLast(){
+        return get(size-1);
+    }
+
+    public E getFirst(){
+        return get(0);
+    }
+
     // 修改index索引位置的元素为e
     public void set(int index, E e) {
         if(index < 0 || index >= size) {
@@ -108,7 +116,7 @@ public class Array<E> {
             data[i-1] = data[i];
         }
         size --;
-        data[size] = null;//可做可不做
+        data[size] = null;//可做可不做 loitering objects != memory leak
         if(size == data.length / 4 && data.length / 2 != 0) {
             resize( data.length / 2); //动态缩容
         }
