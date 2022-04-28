@@ -1,4 +1,4 @@
-package LeetCodeCompletePlan.Offer;
+package LeetCodeCompletePlan.Offer.Offer35;
 
 /**
  * @Description: Offer 35 复杂链表
@@ -18,9 +18,5 @@ public class Node {
         this.val = val;
         this.next = null;
         this.random = null;
-    }
-
-    public int getVal() {
-        return this.val;
     }
 }
