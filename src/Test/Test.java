@@ -1,5 +1,6 @@
 package Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,13 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        List<String> test = new ArrayList<>();
-        test.toArray();
+        BigDecimal a = new BigDecimal(3000.1200);
+        BigDecimal b = a.stripTrailingZeros();
+        BigDecimal c = new BigDecimal(b.toPlainString());
+
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
 
     }
 }
