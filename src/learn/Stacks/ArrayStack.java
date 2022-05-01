@@ -1,9 +1,7 @@
 package learn.Stacks;
 
-import java.util.ArrayList;
-
 /**
- * @Description:
+ * @Description: 基于动态数组实现的栈
  * @Author: Bentao She
  * @Email: harrypotterandsbt@gmail.com
  * @Date: 2021/12/4 17:26
