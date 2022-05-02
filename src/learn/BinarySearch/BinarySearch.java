@@ -1,7 +1,7 @@
 package learn.BinarySearch;
 
 /**
- * @Description: 二分法代码实现
+ * @Description: 二分法代码实现，有两种实现方法。
  * @Author: Bentao She
  * @Email: harrypotterandsbt@gmail.com
  * @Date: 2022/1/5 13:20
@@ -10,6 +10,7 @@ package learn.BinarySearch;
 
 public class BinarySearch {
 
+    // 第一种写法
     public int binarySearch(int[] arr, int target) {
         int l = 0, r = arr.length - 1;
         while (l <= r) {
@@ -25,6 +26,7 @@ public class BinarySearch {
         return -1;
     }
 
+    // 第二种写法
     public int binarySearch2(int[] arr, int target) {
         int l = 0, r = arr.length;
         while (l < r) {
