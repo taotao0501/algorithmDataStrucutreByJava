@@ -1,5 +1,7 @@
 package exercise.LeetCodeCompletePlan.Offer;
 
+import java.util.Deque;
+
 /**
  * @Description:
  * @Author: Bentao She

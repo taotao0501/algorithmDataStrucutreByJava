@@ -43,6 +43,7 @@ public class Offer03 {
                 return num;
             }
         }
+
         return -1;
     }
 

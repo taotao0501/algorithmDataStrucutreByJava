@@ -7,3 +7,8 @@ https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai
 - [机器人运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)
 - [分割回文串-LC131](https://leetcode-cn.com/problems/palindrome-partitioning/)
 - 以及目前已经做过的所有LeetCode题目
+- LC140-单词拆分II
+- LC212- 单词搜索II
+- 2-两数相加
+- 21-合并两个有序链表
+- 
