@@ -18,6 +18,8 @@ public class StrPermute {
         used = new boolean[len];
         dfs(str,0,"");
         return res;
+
+
     }
 
     private void dfs(String str, int index, String s){
@@ -36,7 +38,8 @@ public class StrPermute {
         }
     }
     public static void main(String[] args) {
-        String test = "ABCDEF";
+//        String test = "ABCDEF";
+        String test = "abb";
         System.out.println((new StrPermute()).list(test));
     }
 }

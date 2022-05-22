@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.List;
 
 /**
- * @Description:
+ * @Description: 从尾到头打印链表
  * @Author: Bentao She
  * @Email: harrypotterandsbt@gmail.com
  * @Date: 2022/2/9 16:34

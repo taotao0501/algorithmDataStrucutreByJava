@@ -1,7 +1,7 @@
 package exercise.LeetCodeCompletePlan.Offer;
 
 /**
- * @Description:
+ * @Description: 替换空格
  * @Author: Bentao She
  * @Date: 2022/1/15 21:24
  * @Version: V1.0
