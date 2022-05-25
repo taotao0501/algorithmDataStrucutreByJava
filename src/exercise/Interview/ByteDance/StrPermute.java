@@ -1,11 +1,13 @@
 package exercise.Interview.ByteDance;
 
 /**
- * 字符串全排列
+ * 字符串全排列 ，本题只能解决 字符串中每个字符互不相同，否则就会有重复，需要剪枝
  */
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class StrPermute {
     List<String> res;
@@ -27,10 +29,15 @@ public class StrPermute {
             res.add(s);
             return;
         }
+        Set<Character> record = new HashSet<>();
         for(int i=0; i<len; i++){
+            if(record.contains(str.charAt(i))) {
+                continue;
+            }
             if(!used[i]){
                 used[i]=true;
                 abc = s+str.charAt(i);
+                record.add(str.charAt(i));
                 dfs(str,index+1, abc);
                 abc = s;
                 used[i]=false;
@@ -39,7 +46,7 @@ public class StrPermute {
     }
     public static void main(String[] args) {
 //        String test = "ABCDEF";
-        String test = "abb";
+        String test = "abcc";
         System.out.println((new StrPermute()).list(test));
     }
 }
